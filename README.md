@@ -47,7 +47,7 @@ Awesome huh? Let's start!
 
 ### Iteration 1 - User Model
 
-First, we need to modify the `User` model. Inside the `models` folder, you will find a `user.js` file. We already have the `username` and `password` fields, so we need to add the followings:
+First, we need to modify the `User` model. Inside the `models` folder, you will find a `user.js` file. We already have the `email` and `password` fields, so we need to add the followings:
 
 - **`status`** - will be a string, and you should add an `enum` because the only possible values are: *"Pending Confirmation"* or *"Active"*. By default, when a new user is created, it will be set to *"Pending Confirmation"*.
 - **`confirmationCode`** - here we will store a confirmation code; it will be unique for each user.
@@ -60,7 +60,7 @@ First, we need to modify the `User` model. Inside the `models` folder, you will 
 
 On the `auth/signup.hbs` file you need to add an `input` tag for the **email**. When the user clicks on the `signup` button, you should store the following values in the database:
 
-- **username** - from the `req.body`;
+- **email** - from the `req.body`;
 - **password** - after hashing the value of the `password` field from the `req.body`;
 - **email** - from the `req.body`;
 - **confirmationCode** - for creating a confirmation code, you can use any methodology, from installing the npm package for email verification to simplest `Math.random()` function on some string.
@@ -90,7 +90,7 @@ Inside the route, after comparing the confirmation code, you have to set the `st
 
 ### Iteration 4 - Profile View
 
-Finally, you have to create a `profile.hbs` view, where you have to render the `username` and the `status` of the user.
+Finally, you have to create a `profile.hbs` view, where you have to render the `email` and the `status` of the user.
 
 
 ### Bonus! Styling the Email
